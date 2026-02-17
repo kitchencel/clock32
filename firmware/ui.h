@@ -24,8 +24,12 @@ extern "C" {
 extern lv_obj_t * ui____initial_actions0;
 
 // FONTS
-LV_FONT_DECLARE(ui_font_robotomono26mediumbpp4v2);
-LV_FONT_DECLARE(ui_font_clockface286bpp4numbersv2);
+LV_FONT_DECLARE(ui_font_clockface286oPTimized);
+LV_FONT_DECLARE(ui_font_quote30oPTimized);
+LV_FONT_DECLARE(ui_font_status26oPTimized);
+LV_FONT_DECLARE(ui_font_weather96);
+LV_FONT_DECLARE(ui_font_weatherdegrees96oPTimized);
+LV_FONT_DECLARE(ui_font_weatherdegrees32oPTimized);
 
 // UI INIT
 void ui_init(void);

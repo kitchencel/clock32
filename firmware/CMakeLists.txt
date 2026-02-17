@@ -1,0 +1,8 @@
+SET(SOURCES ui_Screen1.c
+    ui.c
+    ui_comp_hook.c
+    ui_helpers.c
+    fonts/ui_font_robotomono26mediumbpp4v2.c
+    fonts/ui_font_clockface286bpp4numbersv2.c)
+
+add_library(ui ${SOURCES})

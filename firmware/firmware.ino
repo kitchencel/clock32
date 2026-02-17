@@ -1,12 +1,13 @@
 #include <lvgl.h>
 #include <LovyanGFX.h>
 #include <WiFi.h>
+#include <HTTPClient.h>
 #include "env.h"
-#include "ui_Screen1.h"
+#include "ui_main.h"
 
 /*     NOTE TO SELF
-init screen1:    void ui_Screen1_screen_init(void);
-destroy screen1: void ui_Screen1_screen_destroy(void);
+init screen1:    void ui_main_screen_init(void);
+destroy screen1: void ui_main_screen_destroy(void);
 objects: 
 - ui_Screen1
 - ui_time
@@ -19,7 +20,15 @@ TO BE REMOVED IN PROD
 static lv_display_t* display;
 const long utc_offset = 1 * 3600;  // if your timezone is UTC, make it 0. (x * 60 * 60, where x is the amount of hours)
 const long dst_offset = 2 * 3600;  // if your timezone is UTC, make it 1. (x * 60 * 60, where x is the amount of hours)
-const char* ntp = "pool.time.org";
+const char* ntp = "pool.ntp.org";
+
+String city = "London";
+const char* weather_api_adress = "http://api.weatherapi.com";
+String weather_api_key = "2ea72f609a294d61a6b125325261502";
+const unsigned int weather_api_port = 80;
+
+WiFiClient wifi;
+HTTPClient http;
 
 void setup() {
   Serial.begin(6700);
@@ -27,6 +36,23 @@ void setup() {
   // Connect to WiFi
   WiFi.mode(WIFI_STA);
   WiFi.begin(SSID, KEY);
+
+  String url = String(weather_api_adress) + "?key=" + weather_api_key + "&q=" + city + "&days=9&aqi=no&alerts=no";
+
+  http.begin(url);          // Start connection
+  int httpCode = http.GET(); // Send GET request
+
+  if (httpCode > 0) {
+      if (httpCode == HTTP_CODE_OK) {
+          String payload = http.getString();
+          Serial.println(payload);
+      }
+  } else {
+      Serial.print("HTTP error: ");
+      Serial.println(http.errorToString(httpCode));
+  }
+
+  http.end();
 
   configTime(utc_offset, dst_offset, ntp);
 
@@ -42,7 +68,7 @@ void setup() {
   lv_display_set_buffers(display, buf, NULL, 800 * 480 / 10, LV_DISPLAY_RENDER_MODE_PARTIAL);
   lv_display_set_flush_cb(display, dummy_flush_cb);  // feed the data to a dummy
 
-  ui_Screen1_screen_init();  // Finally, it's loading!!!
+  ui_main_screen_init();  // Finally, it's loading!!!
 
   scheduleClockUpdate();
 }

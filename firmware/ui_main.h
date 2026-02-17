@@ -3,22 +3,23 @@
 // LVGL version: 9.1.0
 // Project name: SquareLine_Project
 
-#ifndef UI_SCREEN1_H
-#define UI_SCREEN1_H
+#ifndef UI_MAIN_H
+#define UI_MAIN_H
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-// SCREEN: ui_Screen1
-extern void ui_Screen1_screen_init(void);
-extern void ui_Screen1_screen_destroy(void);
-extern lv_obj_t * ui_Screen1;
+// SCREEN: ui_main
+extern void ui_main_screen_init(void);
+extern void ui_main_screen_destroy(void);
+extern lv_obj_t * ui_main;
 extern lv_obj_t * ui_dateandwifi;
 extern lv_obj_t * ui_wifiStrength;
 extern lv_obj_t * ui_date;
 extern lv_obj_t * ui_border;
-extern lv_obj_t * ui_Container7;
+extern lv_obj_t * ui_viewport;
+extern lv_obj_t * ui_parent;
 extern lv_obj_t * ui_timekeep;
 extern lv_obj_t * ui_quote;
 extern lv_obj_t * ui_time;
@@ -67,7 +68,6 @@ extern lv_obj_t * ui_day9;
 extern lv_obj_t * ui_humanday9;
 extern lv_obj_t * ui_day9icon;
 extern lv_obj_t * ui_day9deg;
-extern lv_obj_t * ui_separator;
 // CUSTOM VARIABLES
 extern lv_obj_t * uic_todayweek;
 

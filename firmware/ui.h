@@ -16,7 +16,7 @@ extern "C" {
 #include "ui_events.h"
 
 ///////////////////// SCREENS ////////////////////
-#include "ui_Screen1.h"
+#include "ui_main.h"
 
 ///////////////////// VARIABLES ////////////////////
 
@@ -28,8 +28,8 @@ LV_FONT_DECLARE(ui_font_clockface286oPTimized);
 LV_FONT_DECLARE(ui_font_quote30oPTimized);
 LV_FONT_DECLARE(ui_font_status26oPTimized);
 LV_FONT_DECLARE(ui_font_weather96);
-LV_FONT_DECLARE(ui_font_weatherdegrees96oPTimized);
 LV_FONT_DECLARE(ui_font_weatherdegrees32oPTimized);
+LV_FONT_DECLARE(ui_font_weatherdegrees96oPTimized);
 
 // UI INIT
 void ui_init(void);

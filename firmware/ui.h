@@ -17,8 +17,15 @@ extern "C" {
 
 ///////////////////// SCREENS ////////////////////
 #include "ui_main.h"
+#include "ui_wifiscreen.h"
+#include "ui_location.h"
+#include "ui_unitsscreen.h"
 
 ///////////////////// VARIABLES ////////////////////
+extern lv_anim_t * lkeebpopup_Animation(lv_obj_t * TargetObject, int delay);
+extern lv_anim_t * lkeepgoodbye_Animation(lv_obj_t * TargetObject, int delay);
+extern lv_anim_t * wifikeebpopup_Animation(lv_obj_t * TargetObject, int delay);
+extern lv_anim_t * wifikeebgoodbye_Animation(lv_obj_t * TargetObject, int delay);
 
 // EVENTS
 extern lv_obj_t * ui____initial_actions0;
@@ -26,6 +33,7 @@ extern lv_obj_t * ui____initial_actions0;
 // FONTS
 LV_FONT_DECLARE(ui_font_clockface286oPTimized);
 LV_FONT_DECLARE(ui_font_quote30oPTimized);
+LV_FONT_DECLARE(ui_font_settings32);
 LV_FONT_DECLARE(ui_font_status26oPTimized);
 LV_FONT_DECLARE(ui_font_weather96);
 LV_FONT_DECLARE(ui_font_weatherdegrees32oPTimized);

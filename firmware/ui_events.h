@@ -10,6 +10,10 @@
 extern "C" {
 #endif
 
+void connect2wifi(lv_event_t * e);
+void savecityandoffset(lv_event_t * e);
+void saveunits(lv_event_t * e);
+
 #ifdef __cplusplus
 } /*extern "C"*/
 #endif

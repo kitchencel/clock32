@@ -1,5 +1,0 @@
-Libraries used:
-- LVGL
-- LovyanGFX
-- WiFi.h (pretty sure it's a standard lib)
-- ArduinoHTTP
